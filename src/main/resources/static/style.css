@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #87CEEB; /* Синий фон страницы */
+    height: auto;
+}
+
+::selection {
+    background: #ADD8E6; /* Голубой цвет выделенного текста */
+}
+
+.container {
+    max-width: 440px;
+    min-height: 100vh; /* 100vh - 100% высоты окна браузера */
+    padding: 20px;
+    margin: 170px auto;
+}
+
+.wrapper {
+    width: 100%;
+    background: #F0F8FF; /* Голубой фон контейнера */
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title {
+    height: 90px;
+    background: #5F9EA0; /* Темный голубой цвет для заголовка */
+    border-radius: 5px 5px 0 0;
+    color: #000000;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper form {
+    padding: 30px 25px 25px 25px;
+}
+
+.wrapper form .row {
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.wrapper form .row input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    border: 1px solid #B0E0E6; /* Голубая рамка вокруг поля ввода */
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+form .row input:focus {
+    border-color: #5F9EA0; /* Темный голубой цвет при фокусе */
+    box-shadow: inset 0px 0px 2px 2px #ADD8E6; /* Голубая тень вокруг поля при фокусе */
+}
+
+form .row input::placeholder {
+    color: #999; /* Серый цвет плейсхолдера */
+}
+
+.wrapper form .row i {
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    background: #5F9EA0; /* Темный голубой цвет для иконки */
+    border: 1px solid #5F9EA0; /* Темный голубой цвет рамки вокруг иконки */
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper form .pass {
+    margin: -8px 0 20px 0;
+}
+
+.wrapper form .pass a {
+    color: #5F9EA0; /* Темный голубой цвет для ссылки */
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.wrapper form .pass a:hover {
+    text-decoration: underline;
+}
+
+.wrapper form .button input {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: #5F9EA0; /* Темный голубой цвет для кнопки */
+    border: 1px solid #5F9EA0; /* Темный голубой цвет рамки вокруг кнопки */
+    cursor: pointer;
+}
+
+form .button input:hover {
+    background: #4682B4; /* Темно-синий цвет при наведении на кнопку */
+}
+
+.wrapper form .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+.wrapper form .signup-link a {
+    color: #5F9EA0; /* Темный голубой цвет для ссылки */
+    text-decoration: none;
+}
+
+form .signup-link a:hover {
+    text-decoration: underline;
+}
+
+.profile-header {
+    background-color: #5F9EA0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.post-list {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.post {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-text {
+    font-size: 16px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.post-form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex; /* Используем Flexbox для управления размещением элементов */
+}
+
+.post-form textarea {
+    flex-grow: 1; /* Занимает всю доступную ширину */
+    padding: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    resize: none;
+}
+
+.post-form input[type="submit"] {
+    padding: 8px 20px;
+    border: none;
+    background-color: #5F9EA0;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.error-message {
+    text-align: center;
+    color: #FF0000; /* Красный цвет текста для сообщения об ошибке */
+}

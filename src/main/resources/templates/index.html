@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="title">
+            <span th:if="${isAuthenticated}">
+                Welcome, <span th:text="${username}"></span>!
+            </span>
+            <span th:unless="${isAuthenticated}">
+                Welcome!
+            </span>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <a th:if="${isAuthenticated}" href="/user/all">List of users</a>
+            <a th:unless="${isAuthenticated}" href="/user/login">Login</a>
+        </div>
+        <span th:unless="${isAuthenticated}">
+            <br>
+        </span>
+        <span th:if="${isAuthenticated}">
+            <form action="/logout" method="post">
+                <div class="row button">
+                    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+                    <input type="submit" value="Log out">
+                </div>
+            </form>
+        </span>
+    </div>
+</div>
+</body>
+</html>

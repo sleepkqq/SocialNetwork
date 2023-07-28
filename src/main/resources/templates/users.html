@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Users</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="title">
+            List of users
+        </div>
+        <br>
+        <div th:each="user : ${users}">
+            <div style="text-align: center;">
+                <b th:text="${user.id}"></b>
+                <a th:href="@{/user/profile/{id}(id=${user.id})}" th:text="${user.username}"></a>
+            </div>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <a href="/">Home page</a>
+        </div>
+        <br>
+    </div>
+</div>
+</body>
+</html>
