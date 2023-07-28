@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("user")
 public class UserController {
 
     @Autowired
@@ -23,7 +22,7 @@ public class UserController {
     @Autowired
     private PostService postService;
 
-    @GetMapping("/all")
+    @GetMapping("/user/all")
     public String getAllUsers(Model model) {
         model.addAttribute("users", userService.findAll());
         return "users";
@@ -48,7 +47,7 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @GetMapping("/profile/{id}")
+    @GetMapping("/user/{id}")
     public String profile(Model model, @PathVariable Long id) {
         User user = userService.getUser(id);
         boolean find = user != null;
@@ -65,7 +64,7 @@ public class UserController {
         return "profile";
     }
 
-    @PostMapping("/profile/{id}")
+    @PostMapping("/user/{id}")
     public String addPost(@RequestParam String text,
                           @PathVariable Long id,
                           Authentication authentication) {

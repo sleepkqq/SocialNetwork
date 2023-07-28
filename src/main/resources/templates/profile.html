@@ -17,7 +17,7 @@
   <a href="/user/all">List of users</a><br>
 </div>
 <div class="post-form">
-  <form th:action="@{/user/profile/{id}(id=${id})}" method="post">
+  <form th:action="@{/user/{id}(id=${id})}" method="post">
     <label>
       <textarea name="text" placeholder="Text for post" required maxlength="150" oninput="checkCharacterLimit(event)"></textarea>
       <input type="hidden" name="_csrf" th:value="${_csrf.token}" />

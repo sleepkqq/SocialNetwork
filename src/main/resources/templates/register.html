@@ -11,10 +11,10 @@
 <div class="container">
     <div class="wrapper">
         <div class="title"><span>Register Form</span></div>
-        <form action="/user/register" method="post">
+        <form action="/register" method="post">
             <div class="row">
                 <i class="fas fa-user"></i>
-                <input type="text" name="username" placeholder="User name" required maxlength="12">
+                <input type="text" name="username" placeholder="Username" required maxlength="12">
             </div>
             <div class="row">
                 <i class="fas fa-lock"></i>
@@ -27,7 +27,7 @@
             <div class="error-message" th:if="${error}">
                 <span th:text="${error}"></span>
             </div>
-            <div class="signup-link">Already a member? <a href="/user/login">Sign in now</a></div>
+            <div class="signup-link">Already a member? <a href="/login">Sign in now</a></div>
         </form>
     </div>
 </div>

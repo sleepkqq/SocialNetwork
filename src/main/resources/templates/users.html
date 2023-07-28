@@ -17,7 +17,7 @@
         <div th:each="user : ${users}">
             <div style="text-align: center;">
                 <b th:text="${user.id}"></b>
-                <a th:href="@{/user/profile/{id}(id=${user.id})}" th:text="${user.username}"></a>
+                <a th:href="@{/user/{id}(id=${user.id})}" th:text="${user.username}"></a>
             </div>
         </div>
         <br>

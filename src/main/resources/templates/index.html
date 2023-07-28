@@ -21,7 +21,7 @@
         <br>
         <div style="text-align: center;">
             <a th:if="${isAuthenticated}" href="/user/all">List of users</a>
-            <a th:unless="${isAuthenticated}" href="/user/login">Login</a>
+            <a th:unless="${isAuthenticated}" href="/login">Login</a>
         </div>
         <span th:unless="${isAuthenticated}">
             <br>
