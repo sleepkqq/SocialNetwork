@@ -8,21 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 </head>
 <body>
+<div th:insert="appbar.html"></div>
 <div class="container">
     <div class="wrapper">
-        <div class="title">
-            User list
-        </div>
+        <div class="title">User list</div>
         <br>
         <div th:each="user : ${users}">
             <div style="text-align: center;">
                 <b th:text="${user.id}"></b>
                 <a th:href="@{/user/{id}(id=${user.id})}" th:text="${user.username}"></a>
             </div>
-        </div>
-        <br>
-        <div style="text-align: center;">
-            <a href="/">Home page</a>
         </div>
         <br>
     </div>

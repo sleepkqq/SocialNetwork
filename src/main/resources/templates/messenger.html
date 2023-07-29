@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +7,10 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<div th:insert="appbar.html"></div>
 <div class="profile-header">
     <img src="/user-Male.png" alt="User Avatar">
     <h2 th:text="${currentUser.username}"></h2>
-</div>
-<div style="text-align: center;">
-    <br>
-    <a href="/">Home page</a><br>
-    <a th:href="@{/user/{id}(id=${currentUser.id})}">Profile</a>
 </div>
 <div class="dialog-list">
     <h1>Chat list</h1>

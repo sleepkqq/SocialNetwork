@@ -55,12 +55,9 @@ public class UserController {
         if (find) {
             List<Post> posts = user.getPostsOnPage();
             Collections.reverse(posts);
-            model.addAttribute("username", user.getUsername());
-            model.addAttribute("role", user.getRole());
-            model.addAttribute("active", user.isActive());
+            model.addAttribute("user", user);
             model.addAttribute("posts", posts);
-            model.addAttribute("id", user.getId());
-            model.addAttribute("currentUser", authentication.getName());
+            model.addAttribute("currentUser", userService.getUser(authentication.getName()));
         }
         return "profile";
     }
@@ -72,7 +69,19 @@ public class UserController {
         User author = userService.getUser(authentication.getName());
         User userPage = userService.getUser(id);
         postService.addPost(text, author, userPage);
-        return "redirect:/user/profile/" + userPage.getId();
+        return "redirect:/user/" + userPage.getId();
+    }
+
+    @GetMapping("/user/me")
+    public String currentUserProfile(Model model, Authentication authentication) {
+        User user = userService.getUser(authentication.getName());
+        List<Post> posts = user.getPostsOnPage();
+        Collections.reverse(posts);
+        model.addAttribute("find", true);
+        model.addAttribute("user", user);
+        model.addAttribute("posts", posts);
+        model.addAttribute("currentUser", user);
+        return "profile";
     }
 
 }

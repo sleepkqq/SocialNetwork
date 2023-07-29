@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 </head>
 <body>
+<div th:insert="appbar.html"></div>
 <div class="container">
     <div class="wrapper">
         <div class="title">
@@ -18,17 +19,13 @@
                 Welcome!
             </span>
         </div>
-        <br>
-        <div style="text-align: center;">
-            <span th:if="${isAuthenticated}">
-                <a th:href="@{/user/{id}(id=${currentUser.id})}">Profile</a><br>
-                <a href="/user/all">User list</a><br>
-                <a href="/messenger">Messenger</a>
-            </span>
-            <a th:unless="${isAuthenticated}" href="/login">Login</a>
-        </div>
         <span th:unless="${isAuthenticated}">
-            <br>
+            <form action="/login" method="get">
+                <div class="row button">
+                    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+                    <input type="submit" value="Log in">
+                </div>
+            </form>
         </span>
         <span th:if="${isAuthenticated}">
             <form action="/logout" method="post">

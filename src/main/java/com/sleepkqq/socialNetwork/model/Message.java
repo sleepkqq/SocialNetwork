@@ -3,6 +3,7 @@ package com.sleepkqq.socialNetwork.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -19,4 +20,9 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "receiver_id")
     private User receiver;
+
+    public String getDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        return sdf.format(date);
+    }
 }

@@ -42,11 +42,11 @@ public class MessageController {
     public String getDialog(@PathVariable Long id,
                             Authentication authentication,
                             Model model) {
-        User userNow =  userService.getUser(authentication.getName());
+        User currentUser =  userService.getUser(authentication.getName());
         User receiver = userService.getUser(id);
         model.addAttribute("receiver", receiver);
-        model.addAttribute("userNow", userNow);
-        model.addAttribute("messages", messageService.messagesCurrentUserWithReceiver(userNow, receiver));
+        model.addAttribute("currentUser", currentUser);
+        model.addAttribute("messages", messageService.messagesCurrentUserWithReceiver(currentUser, receiver));
         return "chat";
     }
 

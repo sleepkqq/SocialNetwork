@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Chat</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/chat.css">
 </head>
 <body>
-<div class="container">
-    <div class="wrapper">
-        <div class="title"><span th:text="${receiver.username}"></span></div>
-        <div class="dialog-list">
-            <div class="message-container">
-                <div th:each="message : ${messages}" th:class="${message.author == userNow} ? 'message-from-current-user' : 'message-from-receiver'">
-                    <div class="post">
-                        <div class="post-header">
-                            <img src="/user-Male.png" alt="User Avatar">
-                            <span class="username" th:text="${message.author.username}"></span>
-                        </div>
-                        <div class="post-text" th:text="${message.text}"></div>
-                    </div>
-                </div>
+<div th:insert="appbar.html"></div>
+<div class="chat-container">
+    <div class="chat-header">
+        <img src="/user-Male.png" alt="User Avatar">
+        <span th:text="${receiver.username}"></span>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+        <!-- Thymeleaf loop to display messages -->
+        <div th:each="message : ${messages}" th:class="${message.author == currentUser ? 'sent' : 'received'}">
+            <div class="message-text">
+                <p th:text="${message.text}"></p>
+                <span th:text="${message.getDate()}"></span>
             </div>
         </div>
-        <div class="post-form">
-            <form th:action="@{/messenger/user/{id}(id=${receiver.id})}" method="post">
-                <label>
-                    <input name="text" placeholder="Text for message" required maxlength="150">
-                    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
-                    <input type="submit" value="Send">
-                </label>
-            </form>
-        </div>
+    </div>
+    <div class="chat-footer">
+        <form th:action="@{/messenger/user/{id}(id=${receiver.id})}" method="post">
+            <textarea id="message-input" name="text" placeholder="Type your message (max 150 characters)" maxlength="150" required></textarea>
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+            <button type="submit">Send</button>
+        </form>
     </div>
 </div>
+<script src="/chat.js"></script>
 </body>
 </html>

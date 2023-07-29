@@ -175,34 +175,6 @@ form .signup-link a:hover {
     overflow-wrap: break-word;
 }
 
-.post-form {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-    display: flex; /* Используем Flexbox для управления размещением элементов */
-}
-
-.post-form textarea {
-    flex-grow: 1; /* Занимает всю доступную ширину */
-    padding: 8px;
-    border: 1px solid #ddd;
-    outline: none;
-    resize: none;
-}
-
-.post-form input[type="submit"] {
-    padding: 8px 20px;
-    border: none;
-    background-color: #5F9EA0;
-    color: white;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    outline: none;
-}
-
 .dialog-list {
     max-width: 600px;
     margin: 20px auto;
@@ -249,6 +221,75 @@ form .signup-link a:hover {
 
 .username {
     font-size: 16px;
+}
+
+.form-post {
+    max-width: 400px; /* Ширина контейнера */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилизация текстового поля */
+.form-post textarea {
+    width: 100%;
+    height: 150px; /* Высота текстового поля */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Возможность вертикального изменения размера текстового поля */
+}
+
+/* Стилизация кнопки "Post" */
+.form-post input[type="submit"] {
+    display: block; /* Делаем кнопку блочным элементом, чтобы можно было задать ширину */
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Стилизация счетчика символов */
+#characterCount {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Изменение стиля кнопки при наведении */
+.form-post input[type="submit"]:hover {
+    background-color: #0056b3; /* Новый цвет фона при наведении */
+}
+
+/* Стилизация ссылки на диалог */
+.chat-link a {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 5px;
+    border: 1px solid #007bff; /* Цвет рамки ссылки */
+    border-radius: 5px;
+    background-color: #007bff; /* Цвет фона ссылки */
+    color: #fff; /* Цвет текста ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Изменение стиля ссылки при наведении */
+.chat-link a:hover {
+    background-color: #0056b3; /* Новый цвет фона при наведении */
+    border-color: #0056b3; /* Новый цвет рамки при наведении */
 }
 
 .error-message {

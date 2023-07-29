@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +7,20 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<div th:insert="appbar.html"></div>
 <div class="profile-header">
     <img src="/user-Male.png" alt="User Avatar">
-    <h2 th:text="${username}"></h2>
+    <h2 th:text="${user.username}"></h2>
 </div>
-<div style="text-align: center;">
-    <br>
-    <a href="/">Home page</a><br>
-    <a href="/user/all">User list</a><br>
-    <a href="/messenger">Messenger</a><br>
-</div>
-<span th:if="${username != currentUser}">
-    <div class="post-form">
-        <form th:action="@{/messenger/user/{id}(id=${id})}" method="post">
-            <label>
-                <input name="text" placeholder="Text for message" required maxlength="150">
-                <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-                <input type="submit" value="Send">
-            </label>
-        </form>
+<span th:if="${user.id != currentUser.id}">
+    <div style="text-align: center;">
+        <div class="chat-link">
+        <a th:href="@{/messenger/user/{id}(id=${user.id})}">Chat</a>
+    </div>
     </div>
 </span>
-<div class="post-form">
-    <form th:action="@{/user/{id}(id=${id})}" method="post">
+<div class="form-post">
+    <form th:action="@{/user/{id}(id=${user.id})}" method="post">
         <label>
             <textarea name="text" placeholder="Text for post" required maxlength="150"
                       oninput="checkCharacterLimit(event)"></textarea>
@@ -43,9 +34,9 @@
     <div th:each="post : ${posts}" class="post">
         <div class="post-header">
             <img src="/user-Male.png" alt="Post Author Avatar">
-            <h3 th:text="${post.getAuthor().username}"></h3>
+            <h3 th:text="${post.author.username}"></h3>
         </div>
-        <div class="post-text" th:text="${post.getText()}"></div>
+        <div class="post-text" th:text="${post.text}"></div>
     </div>
 </div>
 
