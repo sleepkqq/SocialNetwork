@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile</title>
-  <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <div class="profile-header">
-  <img src="/user-Male.png" alt="User Avatar">
-  <h2 th:text="${username}"></h2>
+    <img src="/user-Male.png" alt="User Avatar">
+    <h2 th:text="${username}"></h2>
 </div>
 <div style="text-align: center;">
-  <br>
-  <a href="/">Home page</a><br>
-  <a href="/user/all">User list</a><br>
-  <a href="/messenger">Messenger</a><br>
+    <br>
+    <a href="/">Home page</a><br>
+    <a href="/user/all">User list</a><br>
+    <a href="/messenger">Messenger</a><br>
 </div>
 <span th:if="${username != currentUser}">
-  <div class="post-form">
-  <form th:action="@{/messenger/user/{id}(id=${id})}" method="post">
-    <label>
-      <input name="text" placeholder="Text for message" required maxlength="150">
-      <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
-      <input type="submit" value="Send">
-    </label>
-  </form>
-  </div>
+    <div class="post-form">
+        <form th:action="@{/messenger/user/{id}(id=${id})}" method="post">
+            <label>
+                <input name="text" placeholder="Text for message" required maxlength="150">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+                <input type="submit" value="Send">
+            </label>
+        </form>
+    </div>
 </span>
 <div class="post-form">
-  <form th:action="@{/user/{id}(id=${id})}" method="post">
-    <label>
-      <textarea name="text" placeholder="Text for post" required maxlength="150" oninput="checkCharacterLimit(event)"></textarea>
-      <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
-      <input type="submit" value="Post">
-    </label>
-    <span id="characterCount">0/150</span>
-  </form>
+    <form th:action="@{/user/{id}(id=${id})}" method="post">
+        <label>
+            <textarea name="text" placeholder="Text for post" required maxlength="150"
+                      oninput="checkCharacterLimit(event)"></textarea>
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+            <input type="submit" value="Post">
+        </label>
+        <span id="characterCount">0/150</span>
+    </form>
 </div>
 <div class="post-list">
-  <div th:each="post : ${posts}" class="post">
-    <div class="post-header">
-      <img src="/user-Male.png" alt="Post Author Avatar">
-      <h3 th:text="${post.getAuthor().username}"></h3>
+    <div th:each="post : ${posts}" class="post">
+        <div class="post-header">
+            <img src="/user-Male.png" alt="Post Author Avatar">
+            <h3 th:text="${post.getAuthor().username}"></h3>
+        </div>
+        <div class="post-text" th:text="${post.getText()}"></div>
     </div>
-    <div class="post-text" th:text="${post.getText()}"></div>
-  </div>
 </div>
 
 <script>
-  function checkCharacterLimit(event) {
-    const textarea = event.target;
-    const maxLength = parseInt(textarea.getAttribute("maxlength"));
-    const currentLength = textarea.value.length;
-    const characterCountElement = document.getElementById("characterCount");
+    function checkCharacterLimit(event) {
+        const textarea = event.target;
+        const maxLength = parseInt(textarea.getAttribute("maxlength"));
+        const currentLength = textarea.value.length;
+        const characterCountElement = document.getElementById("characterCount");
 
-    if (currentLength > maxLength) {
-      textarea.value = textarea.value.substring(0, maxLength);
-      characterCountElement.textContent = `${maxLength}/${maxLength}`;
-      alert("Exceeded the limit of 150 characters!");
-    } else {
-      characterCountElement.textContent = `${currentLength}/${maxLength}`;
+        if (currentLength > maxLength) {
+            textarea.value = textarea.value.substring(0, maxLength);
+            characterCountElement.textContent = `${maxLength}/${maxLength}`;
+            alert("Exceeded the limit of 150 characters!");
+        } else {
+            characterCountElement.textContent = `${currentLength}/${maxLength}`;
+        }
     }
-  }
 </script>
 </body>
 </html>
