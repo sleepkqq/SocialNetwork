@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Messenger</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
     <a th:href="@{/user/{id}(id=${currentUser.id})}">Profile</a>
 </div>
 <div class="dialog-list">
-    <h1>Список диалогов</h1>
+    <h1>Chat list</h1>
     <ul>
         <li th:each="user : ${users}" class="user-item">
             <a th:href="@{/messenger/user/{id}(id=${user.id})}" class="user-link">

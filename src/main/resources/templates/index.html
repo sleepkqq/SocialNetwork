@@ -22,7 +22,7 @@
         <div style="text-align: center;">
             <span th:if="${isAuthenticated}">
                 <a th:href="@{/user/{id}(id=${currentUser.id})}">Profile</a><br>
-                <a href="/user/all">List of users</a><br>
+                <a href="/user/all">User list</a><br>
                 <a href="/messenger">Messenger</a>
             </span>
             <a th:unless="${isAuthenticated}" href="/login">Login</a>

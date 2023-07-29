@@ -47,7 +47,7 @@ public class MessageController {
         model.addAttribute("receiver", receiver);
         model.addAttribute("userNow", userNow);
         model.addAttribute("messages", messageService.messagesCurrentUserWithReceiver(userNow, receiver));
-        return "dialog";
+        return "chat";
     }
 
 }
