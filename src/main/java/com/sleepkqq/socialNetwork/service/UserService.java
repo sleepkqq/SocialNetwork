@@ -45,9 +45,4 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public boolean checkUsernameAvailability(String username) {
-        Map<String, Boolean> response = new HashMap<>();
-        return !userRepository.existsByUsername(username);
-    }
-
 }

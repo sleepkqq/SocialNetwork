@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="profile-header">
+    <img src="/user-Male.png" alt="User Avatar">
+    <h2 th:text="${currentUser.username}"></h2>
+</div>
+<div style="text-align: center;">
+    <br>
+    <a href="/">Home page</a><br>
+    <a th:href="@{/user/{id}(id=${currentUser.id})}">Profile</a>
+</div>
+<div class="dialog-list">
+    <h1>Список диалогов</h1>
+    <ul>
+        <li th:each="user : ${users}" class="user-item">
+            <a th:href="@{/messenger/user/{id}(id=${user.id})}" class="user-link">
+                <img src="/user-Male.png" alt="User Avatar" class="user-avatar">
+                <span th:text="${user.username}" class="username"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

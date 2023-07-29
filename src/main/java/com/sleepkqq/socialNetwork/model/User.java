@@ -20,5 +20,10 @@ public class User {
     private List<Post> writtenPosts;
     @OneToMany(mappedBy = "userPage")
     private List<Post> postsOnPage;
+    @OneToMany(mappedBy = "author")
+    private List<Message> authoredMessages;
+
+    @OneToMany(mappedBy = "receiver")
+    private List<Message> receivedMessages;
 
 }

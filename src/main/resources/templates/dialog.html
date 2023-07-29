@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dialog</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="title"><span th:text="${receiver.username}"></span></div>
+        <div class="dialog-list">
+            <div class="message-container">
+                <div th:each="message : ${messages}" th:class="${message.author == userNow} ? 'message-from-current-user' : 'message-from-receiver'">
+                    <div class="post">
+                        <div class="post-header">
+                            <img src="/user-Male.png" alt="User Avatar">
+                            <span class="username" th:text="${message.author.username}"></span>
+                        </div>
+                        <div class="post-text" th:text="${message.text}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-form">
+            <form th:action="@{/messenger/user/{id}(id=${receiver.id})}" method="post">
+                <label>
+                    <input name="text" placeholder="Text for message" required maxlength="150">
+                    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+                    <input type="submit" value="Send">
+                </label>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

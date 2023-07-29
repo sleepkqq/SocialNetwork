@@ -21,6 +21,7 @@ public class PostService {
         post.setUserPage(userPage);
         post.setAuthor(author);
         postRepository.save(post);
+        log.info("Saved post on user page: {}, by: {}", userPage, author);
     }
 
 }

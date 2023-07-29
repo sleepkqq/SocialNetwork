@@ -12,7 +12,7 @@
     <div class="wrapper">
         <div class="title">
             <span th:if="${isAuthenticated}">
-                Welcome, <span th:text="${username}"></span>!
+                Welcome, <span th:text="${currentUser.username}"></span>!
             </span>
             <span th:unless="${isAuthenticated}">
                 Welcome!
@@ -20,7 +20,11 @@
         </div>
         <br>
         <div style="text-align: center;">
-            <a th:if="${isAuthenticated}" href="/user/all">List of users</a>
+            <span th:if="${isAuthenticated}">
+                <a th:href="@{/user/{id}(id=${currentUser.id})}">Profile</a><br>
+                <a href="/user/all">List of users</a><br>
+                <a href="/messenger">Messenger</a>
+            </span>
             <a th:unless="${isAuthenticated}" href="/login">Login</a>
         </div>
         <span th:unless="${isAuthenticated}">

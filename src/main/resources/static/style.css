@@ -203,6 +203,54 @@ form .signup-link a:hover {
     outline: none;
 }
 
+.dialog-list {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.dialog-list h1 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+.user-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.user-link:hover {
+    background-color: #f6f8fa;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-size: 16px;
+}
+
 .error-message {
     text-align: center;
     color: #FF0000; /* Красный цвет текста для сообщения об ошибке */

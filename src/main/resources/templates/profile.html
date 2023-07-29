@@ -15,7 +15,19 @@
   <br>
   <a href="/">Home page</a><br>
   <a href="/user/all">List of users</a><br>
+  <a href="/messenger">Messenger</a><br>
 </div>
+<span th:if="${username != currentUser}">
+  <div class="post-form">
+  <form th:action="@{/messenger/user/{id}(id=${id})}" method="post">
+    <label>
+      <input name="text" placeholder="Text for message" required maxlength="150">
+      <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+      <input type="submit" value="Send">
+    </label>
+  </form>
+  </div>
+</span>
 <div class="post-form">
   <form th:action="@{/user/{id}(id=${id})}" method="post">
     <label>

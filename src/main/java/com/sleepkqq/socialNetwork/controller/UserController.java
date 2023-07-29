@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public String profile(Model model, @PathVariable Long id) {
+    public String profile(Model model, @PathVariable Long id, Authentication authentication) {
         User user = userService.getUser(id);
         boolean find = user != null;
         model.addAttribute("find", find);
@@ -60,6 +60,7 @@ public class UserController {
             model.addAttribute("active", user.isActive());
             model.addAttribute("posts", posts);
             model.addAttribute("id", user.getId());
+            model.addAttribute("currentUser", authentication.getName());
         }
         return "profile";
     }
