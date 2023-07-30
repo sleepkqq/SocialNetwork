@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<div th:insert="appbar.html"></div>
+<div th:insert="~{appbar.html}"></div>
 <div class="profile-header">
     <img src="/user-Male.png" alt="User Avatar">
     <h2 th:text="${currentUser.username}"></h2>

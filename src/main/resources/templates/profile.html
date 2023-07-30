@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<div th:insert="appbar.html"></div>
+<div th:insert="~{appbar.html}"></div>
 <div class="profile-header">
     <img src="/user-Male.png" alt="User Avatar">
     <h2 th:text="${user.username}"></h2>
@@ -34,7 +34,8 @@
     <div th:each="post : ${posts}" class="post">
         <div class="post-header">
             <img src="/user-Male.png" alt="Post Author Avatar">
-            <h3 th:text="${post.author.username}"></h3>
+            <h3 th:text="${post.author.username}" style="margin-right: 5px;"></h3>
+            <span th:text="${post.getDate()}"></span>
         </div>
         <div class="post-text" th:text="${post.text}"></div>
     </div>
