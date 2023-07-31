@@ -11,9 +11,10 @@ import java.util.List;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
-    @Query("SELECT u FROM User u " +
+    @Query("SELECT DISTINCT u FROM User u " +
             "JOIN Message m ON u = m.author OR u = m.receiver " +
-            "WHERE u <> :currentUser " +
+            "WHERE (m.author = :currentUser OR m.receiver = :currentUser) " +
+            "AND u <> :currentUser " +
             "GROUP BY u " +
             "ORDER BY MAX(m.date) DESC")
     List<User> findUsersWithMessagesForCurrentUser(@Param("currentUser") User currentUser);
