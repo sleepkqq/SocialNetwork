@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #87CEEB; /* Синий фон страницы */
+    background: WHITE;
     height: auto;
 }
 
@@ -18,14 +18,13 @@ body {
 
 .container {
     max-width: 440px;
-    min-height: 100vh; /* 100vh - 100% высоты окна браузера */
     padding: 20px;
     margin: 170px auto;
 }
 
 .wrapper {
     width: 100%;
-    background: #F0F8FF; /* Голубой фон контейнера */
+    background: WHITE;
     border-radius: 5px;
     box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 }
@@ -290,6 +289,108 @@ form .signup-link a:hover {
 .chat-link a:hover {
     background-color: #0056b3; /* Новый цвет фона при наведении */
     border-color: #0056b3; /* Новый цвет рамки при наведении */
+}
+
+.appbar {
+    background-color: #5F9EA0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appbar-icon {
+    color: white;
+    margin-right: 10px;
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white; /* Добавлено свойство для задания белого фона */
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+}
+
+.chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-messages {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.chat-messages .sent, .chat-messages .received {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.chat-messages .sent {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+}
+
+.chat-messages .received {
+    background-color: #F3F3F3;
+    align-self: flex-start;
+}
+
+.message-text {
+    word-break: break-word;
+}
+
+.message-text p {
+    margin: 0;
+}
+
+.message-text span {
+    font-size: 12px;
+    color: #888;
+}
+
+.chat-footer {
+    margin-top: 20px;
+}
+
+.chat-footer textarea {
+    flex: 1;
+    resize: none;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 40px;
+}
+
+.chat-footer form {
+    display: flex;
+    align-items: center;
+}
+
+.chat-footer button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-footer button:hover {
+    background-color: #0056b3;
 }
 
 .error-message {

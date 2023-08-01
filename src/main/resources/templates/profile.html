@@ -21,12 +21,10 @@
 </span>
 <div class="form-post">
     <form th:action="@{/user/{id}(id=${user.id})}" method="post">
-        <label>
-            <textarea name="text" placeholder="Text for post" required maxlength="150"
-                      oninput="checkCharacterLimit(event)"></textarea>
-            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-            <input type="submit" value="Post">
-        </label>
+        <textarea name="text" placeholder="Text for post" required maxlength="150"
+                  oninput="checkCharacterLimit(event)"></textarea>
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+        <input type="submit" value="Post">
         <span id="characterCount">0/150</span>
     </form>
 </div>
