@@ -5,7 +5,6 @@ import com.sleepkqq.socialNetwork.model.User;
 import com.sleepkqq.socialNetwork.repository.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
